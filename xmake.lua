@@ -1,12 +1,12 @@
 add_rules("mode.debug", "mode.release")
-add_requires("raylib", "sol2", "entt")
+add_requires("raylib", "sol2", "entt", "fmt", "fmtlog")
 
 target("rouguelike")
     set_kind("binary")
     add_files("src/*.cpp")
     add_files("src/*/*.cpp")
     add_includedirs("src")
-    add_packages("raylib","sol2","entt")
+    add_packages("raylib","sol2","entt", "fmt", "fmtlog")
 --
 -- If you want to known more usage about xmake, please see https://xmake.io
 --
