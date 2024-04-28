@@ -18,11 +18,17 @@ struct Game
   void draw();
   void deinit();
 
+  Camera2D camera;
+
+  //Placeholder
+  uint32_t mapW, mapH = {1};
+
   //store lua defined systems,components and entity definitions here here
   sol::state g_lstate;
   entt::registry world;
 
   bool debug_draw = false;
+  Vector2 mouseCell = { 0 };
   //Base window dimensions if ini file doesn't exist
   static constexpr int d_windowWidth = 720;
   static constexpr int d_windowHeight = 480;

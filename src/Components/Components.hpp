@@ -4,6 +4,11 @@
 #include <cstdint>
 #include <raylib.h>
 
+struct CName
+{
+  std::string name;
+};
+
 struct CTransform
 {
   Vector2 pos;
@@ -64,3 +69,6 @@ struct CTileType
     LAVA,
   };
 };
+
+//Tag
+struct CInput {};

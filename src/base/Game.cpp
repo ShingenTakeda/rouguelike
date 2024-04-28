@@ -4,6 +4,7 @@
 #include "sol/types.hpp"
 #include "Game.hpp"
 #include <Systems/Systems.hpp>
+#include <GUI/GUI.hpp>
 
 void Game::init()
 {
@@ -21,25 +22,28 @@ void Game::init()
   g_lstate.open_libraries(sol::lib::base, sol::lib::os, sol::lib::utf8, sol::lib::math);
   auto e = world.create();
   world.emplace<CTransform>(e, Vector2{40, 50});
-  world.emplace<CChar>(e, "A");
+  world.emplace<CSymbol>(e, "P");
+  world.emplace<CInput>(e);
 }
 
 void Game::handle_input()
 {
-
+  
 }
 
 void Game::update()
 {
-
+  movement_system(world);
 }
 
 void Game::draw()
 {
   BeginDrawing();
   ClearBackground(GRAY);
-  render_system(world);
+  render_system(world, camera);
   //Draw UI here
+  GuiPanel((Rectangle){ 370, 25, 225, 140 }, "Menu");
+  GuiGrid((Rectangle){0, 0, (float)this->current_windowW, (float)this->current_windowH}, "Property List", 32.0f, 2, &mouseCell);
   EndDrawing();
 }
 
