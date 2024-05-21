@@ -21,8 +21,8 @@ void Game::init()
   }
   g_lstate.open_libraries(sol::lib::base, sol::lib::os, sol::lib::utf8, sol::lib::math);
   auto e = world.create();
-  world.emplace<CTransform>(e, Vector2{40, 50});
-  world.emplace<CSymbol>(e, "P");
+  world.emplace<CTransform>(e, Vector2{0, 0});
+  world.emplace<CSymbol>(e, "@");
   world.emplace<CInput>(e);
 }
 
@@ -42,8 +42,8 @@ void Game::draw()
   ClearBackground(GRAY);
   render_system(world, camera);
   //Draw UI here
-  GuiPanel((Rectangle){ 370, 25, 225, 140 }, "Menu");
   GuiGrid((Rectangle){0, 0, (float)this->current_windowW, (float)this->current_windowH}, "Property List", 32.0f, 2, &mouseCell);
+  GuiPanel((Rectangle){ 370, 25, 225, 140 }, "Menu");
   EndDrawing();
 }
 

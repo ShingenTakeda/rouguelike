@@ -1,6 +1,6 @@
 #pragma once
-
 #include "raylib.h"
+
 enum TILE_KIND
 {
   FLOOR,
